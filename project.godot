@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="GMTK2026_JUPE-versaoju"
-run/main_scene="uid://do1tjs3ctnkxq"
+run/main_scene="uid://bhmdirr5gsgn7"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*uid://b5xilkyykddms"
 
 [display]
 

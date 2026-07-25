@@ -19,8 +19,12 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	# Quando o jogador entra na área, começa a seguir
 	if body.is_in_group("player") and not seguindo:
+		print("eu sou a areia", name)
 		seguindo = true
+		GameManager.sandFollower = int(name.substr(name.length()-1, 1))
 		alvo_jogador = body
+		GameManager.saveScene()
+		get_tree().change_scene_to_file("res://scenes/catchingSand.tscn")
 
 
 func _process(delta: float) -> void:

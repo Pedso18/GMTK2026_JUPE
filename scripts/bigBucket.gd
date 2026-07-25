@@ -9,7 +9,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if get_tree().get_nodes_in_group("grainOfSand").is_empty():
-		print("win win win")
+		get_tree().change_scene_to_file("res://scenes/node_2d.tscn")
+		
 	pass
 
 
