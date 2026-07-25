@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://delsx4uutk48p"]
+
+[ext_resource type="Texture2D" uid="uid://b4dcoj52tytrk" path="res://sprites/hourglassTable.png" id="1_avwfi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d21ai"]
+size = Vector2(97, 128)
+
+[node name="HourglassTableRb" type="RigidBody2D" unique_id=1194275889]
+gravity_scale = 0.0
+freeze = true
+
+[node name="HourglassTable" type="Sprite2D" parent="." unique_id=315646731]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(715, 315)
+scale = Vector2(4, 4)
+texture = ExtResource("1_avwfi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1475973183]
+visible = false
+position = Vector2(715.5, 315)
+shape = SubResource("RectangleShape2D_d21ai")

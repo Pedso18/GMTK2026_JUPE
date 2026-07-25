@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://d35lcb5p6p2vx"]
+
+[ext_resource type="Script" uid="uid://ci5cdm7cuqgu6" path="res://scripts/sand_rb.gd" id="1_bl23f"]
+[ext_resource type="Texture2D" uid="uid://wx35km4vegh6" path="res://sprites/sandBucketIcon.png" id="1_je4ec"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmmya"]
+atlas = ExtResource("1_je4ec")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6exw"]
+atlas = ExtResource("1_je4ec")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rl4x"]
+atlas = ExtResource("1_je4ec")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sb72p"]
+atlas = ExtResource("1_je4ec")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nthwk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rmmya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6exw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0rl4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sb72p")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uqtng"]
+radius = 19.0
+
+[node name="SandRb" type="Area2D" unique_id=1496508416]
+script = ExtResource("1_bl23f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1418944464]
+texture_filter = 1
+position = Vector2(20.5, 1.7500005)
+scale = Vector2(2.9375, 2.59375)
+sprite_frames = SubResource("SpriteFrames_nthwk")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1265872496]
+position = Vector2(20, 4)
+shape = SubResource("CircleShape2D_uqtng")

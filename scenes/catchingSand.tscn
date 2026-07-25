@@ -1,0 +1,159 @@
+[gd_scene format=3 uid="uid://do1tjs3ctnkxq"]
+
+[ext_resource type="Script" uid="uid://nv1isss2fk03" path="res://scripts/bigBucket.gd" id="1_hfjvq"]
+[ext_resource type="Texture2D" uid="uid://ig0so4kity7t" path="res://sprites/bigBucket.png" id="1_ufeut"]
+[ext_resource type="Texture2D" uid="uid://ccsjjudiipy0a" path="res://sprites/bigBucketFront.png" id="2_hfjvq"]
+[ext_resource type="PackedScene" uid="uid://dvhdn1yy72nqt" path="res://grainOfSand.tscn" id="4_hfjvq"]
+[ext_resource type="Script" uid="uid://8k1l5mfskan6" path="res://scripts/bigShovel.gd" id="5_1purq"]
+[ext_resource type="Texture2D" uid="uid://cs51gnm0o7q8f" path="res://sprites/bigShovel.png" id="5_m0yma"]
+[ext_resource type="Texture2D" uid="uid://ds538gyyu1ju1" path="res://sprites/bigShovelFront.png" id="6_1purq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m0yma"]
+size = Vector2(18.100004, 13.900002)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pc883"]
+normal = Vector2(0.9999816, -0.0060604946)
+distance = -30.441683
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ufeut"]
+normal = Vector2(-0.9999683, -0.007967874)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hfjvq"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ss48o"]
+normal = Vector2(0.0027322301, 0.99999624)
+
+[node name="CatchingSand" type="Node2D" unique_id=659462878]
+
+[node name="BucketRb" type="RigidBody2D" parent="." unique_id=895667634]
+position = Vector2(305, 359)
+disable_mode = 1
+collision_layer = 2
+freeze = true
+script = ExtResource("1_hfjvq")
+
+[node name="BucketSprite" type="Sprite2D" parent="BucketRb" unique_id=2044492412]
+z_index = -1
+texture_filter = 1
+scale = Vector2(10, 10)
+texture = ExtResource("1_ufeut")
+
+[node name="BucketArea" type="Area2D" parent="BucketRb/BucketSprite" unique_id=1639723373]
+collision_layer = 255
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BucketRb/BucketSprite/BucketArea" unique_id=16807923]
+position = Vector2(-0.049999237, 5.1499977)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_m0yma")
+
+[node name="BucketBarrier" type="CollisionPolygon2D" parent="BucketRb" unique_id=786310907]
+position = Vector2(120, -111)
+polygon = PackedVector2Array(0, -1, 0, 31, -30, 260, -208, 260, -249, 28, -249, 1, -274, 30, -220, 271, -15, 271, 28, 40)
+
+[node name="BucketFrontSprite" type="Sprite2D" parent="BucketRb" unique_id=807475257]
+z_index = 6
+texture_filter = 1
+scale = Vector2(10, 10)
+texture = ExtResource("2_hfjvq")
+
+[node name="WorldBarrier" type="RigidBody2D" parent="." unique_id=1797764103]
+disable_mode = 1
+collision_mask = 16
+freeze = true
+
+[node name="left" type="CollisionShape2D" parent="WorldBarrier" unique_id=1186374562]
+position = Vector2(30, 196)
+shape = SubResource("WorldBoundaryShape2D_pc883")
+
+[node name="right" type="CollisionShape2D" parent="WorldBarrier" unique_id=1795745760]
+position = Vector2(1152, 179)
+shape = SubResource("WorldBoundaryShape2D_ufeut")
+
+[node name="bottom" type="CollisionShape2D" parent="WorldBarrier" unique_id=796475979]
+position = Vector2(693, 594)
+shape = SubResource("WorldBoundaryShape2D_hfjvq")
+
+[node name="top" type="CollisionShape2D" parent="WorldBarrier" unique_id=963526992]
+position = Vector2(544, -145)
+shape = SubResource("WorldBoundaryShape2D_ss48o")
+
+[node name="grainOfSandRb" parent="." unique_id=56283124 instance=ExtResource("4_hfjvq")]
+position = Vector2(766, 404)
+
+[node name="grainOfSandRb2" parent="." unique_id=154448376 instance=ExtResource("4_hfjvq")]
+position = Vector2(647, 404)
+
+[node name="ShovelRb" type="CharacterBody2D" parent="." unique_id=1246168518]
+collision_layer = 17
+collision_mask = 2
+script = ExtResource("5_1purq")
+accel = 110.0
+
+[node name="ShovelSprite" type="Sprite2D" parent="ShovelRb" unique_id=2077222249]
+texture_filter = 1
+scale = Vector2(8, 8)
+texture = ExtResource("5_m0yma")
+
+[node name="ShovelFrontSprite" type="Sprite2D" parent="ShovelRb" unique_id=1112276604]
+z_index = 5
+texture_filter = 1
+scale = Vector2(8, 8)
+texture = ExtResource("6_1purq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ShovelRb" unique_id=309017437]
+position = Vector2(24, 9)
+polygon = PackedVector2Array(-1, 1, -6, -40, 4, -42, 10, 16, -21, 29, -102, 30, -119, 27, -133, 6, -130, 4, -112, 16, -95, 18, -29, 19, -9, 13)
+
+[node name="grainOfSandRb3" parent="." unique_id=1724863158 instance=ExtResource("4_hfjvq")]
+position = Vector2(726, 404)
+
+[node name="grainOfSandRb4" parent="." unique_id=736213731 instance=ExtResource("4_hfjvq")]
+position = Vector2(686, 404)
+
+[node name="grainOfSandRb5" parent="." unique_id=1974947747 instance=ExtResource("4_hfjvq")]
+position = Vector2(806, 404)
+
+[node name="grainOfSandRb6" parent="." unique_id=197012688 instance=ExtResource("4_hfjvq")]
+position = Vector2(787, 369)
+
+[node name="grainOfSandRb7" parent="." unique_id=1119877380 instance=ExtResource("4_hfjvq")]
+position = Vector2(744, 370)
+
+[node name="grainOfSandRb8" parent="." unique_id=1799623063 instance=ExtResource("4_hfjvq")]
+position = Vector2(703, 369)
+
+[node name="grainOfSandRb9" parent="." unique_id=507799268 instance=ExtResource("4_hfjvq")]
+position = Vector2(663, 370)
+
+[node name="grainOfSandRb10" parent="." unique_id=250982888 instance=ExtResource("4_hfjvq")]
+position = Vector2(763, 333)
+
+[node name="grainOfSandRb11" parent="." unique_id=1795037854 instance=ExtResource("4_hfjvq")]
+position = Vector2(720, 335)
+
+[node name="grainOfSandRb12" parent="." unique_id=1418919674 instance=ExtResource("4_hfjvq")]
+position = Vector2(676, 331)
+
+[node name="grainOfSandRb13" parent="." unique_id=1764407018 instance=ExtResource("4_hfjvq")]
+position = Vector2(739, 296)
+
+[node name="grainOfSandRb14" parent="." unique_id=133177605 instance=ExtResource("4_hfjvq")]
+position = Vector2(698, 296)
+
+[node name="grainOfSandRb15" parent="." unique_id=379491514 instance=ExtResource("4_hfjvq")]
+position = Vector2(716, 259)
+
+[node name="grainOfSandRb16" parent="." unique_id=1248106390 instance=ExtResource("4_hfjvq")]
+position = Vector2(604, 401)
+
+[node name="grainOfSandRb17" parent="." unique_id=131848974 instance=ExtResource("4_hfjvq")]
+position = Vector2(622, 367)
+
+[node name="grainOfSandRb18" parent="." unique_id=1545212995 instance=ExtResource("4_hfjvq")]
+position = Vector2(638, 332)
+
+[node name="grainOfSandRb19" parent="." unique_id=1437747536 instance=ExtResource("4_hfjvq")]
+position = Vector2(655, 292)
+
+[connection signal="body_entered" from="BucketRb/BucketSprite/BucketArea" to="BucketRb" method="_on_bucket_area_body_entered"]

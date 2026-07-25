@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dvhdn1yy72nqt"]
+
+[ext_resource type="Texture2D" uid="uid://bopqnu3fv8y0a" path="res://sprites/grainOfSand.png" id="1_2a60x"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2a60x"]
+friction = 0.55
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_871dc"]
+
+[node name="grainOfSandRb" type="RigidBody2D" unique_id=56283124 groups=["grainOfSand"]]
+collision_layer = 16
+collision_mask = 19
+mass = 0.033
+physics_material_override = SubResource("PhysicsMaterial_2a60x")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1354233742]
+z_index = 1
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("1_2a60x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1692659758]
+scale = Vector2(1.6, 1.6)
+shape = SubResource("RectangleShape2D_871dc")
