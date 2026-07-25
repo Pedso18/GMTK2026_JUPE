@@ -339,7 +339,6 @@ tile_map_data = PackedByteArray("AAAKAAUAAAAAAAAAAAALAAUAAAAAAAAAAAAJAAUAAAAAAAA
 tile_set = SubResource("TileSet_hqns4")
 
 [node name="SandRb1" parent="." unique_id=1496508416 groups=["areia"] instance=ExtResource("10_d2bti")]
-unique_name_in_owner = true
 position = Vector2(257, 343)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1206365471]

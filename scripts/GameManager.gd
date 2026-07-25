@@ -6,7 +6,7 @@ var sand1Pos = Vector2()
 var sand2Pos = Vector2()
 var sand3Pos = Vector2()
 var sand4Pos = Vector2()
-var sandFollower = -1 # -1 = nenhuma está seguindo; qualquer outro numero n = areia de index n-1 está seguindo
+var sandFollowers = [] # carrega o index das areias que estao seguindo o player
 
 
 func saveScene():
@@ -28,10 +28,14 @@ func loadScene():
 	areias[1].global_position = sand2Pos
 	areias[2].global_position = sand3Pos
 	areias[3].global_position = sand4Pos
-	areias[sandFollower-1].seguindo = true
+	
+	for sandFollowerIndex in sandFollowers:
+		areias[sandFollowerIndex].seguindo = true
+		
 	var player = get_tree().get_first_node_in_group("player")
 	player.global_position = playerPos
-	areias[sandFollower-1].alvo_jogador = player
+	for sandFollowerIndex in sandFollowers:
+		areias[sandFollowerIndex].alvo_jogador = player
 	
 
 # Called when the node enters the scene tree for the first time.

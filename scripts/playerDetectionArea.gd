@@ -15,8 +15,11 @@ func _on_body_exited(body: Node2D) -> void:
 	pass # Replace with function body.
 	
 func _process(delta: float) -> void:
-	if isCloseToHourglassTable and Input.is_action_just_pressed("ui_accept"):
+	if isCloseToHourglassTable:
 		deliver_sand()
+	pass	
+	
+	
 			
 func deliver_sand() -> void:
 # Busca todas as areias do jogo que pertencem ao grupo "areia"
@@ -26,6 +29,8 @@ func deliver_sand() -> void:
 	for areia in todas_areias:
 		if is_instance_valid(areia) and "seguindo" in areia and areia.seguindo:
 			areias_para_entregar.append(areia)
+			var indexDaAreia = int(areia.name.substr(areia.name.length()-1, 1))-1
+			GameManager.sandFollowers.erase(indexDaAreia)
 
 	# Se houver pelo menos uma areia seguindo o jogador:
 	if areias_para_entregar.size() > 0:
@@ -40,9 +45,11 @@ func deliver_sand() -> void:
 		if has_node("%SandLabel"):
 			%SandLabel.text = "0"
 
-		# Destrói / Coleta apenas as areias que foram entregues
+		# ao invés de destruir as areias entregues, resetamos seu estado e aleatorizamos sua posição para uma das válidas
 		for areia in areias_para_entregar:
-			areia.queue_free()
+			areia.global_position = Vector2(0, 0) #apenas para teste
+			areia.alvo_jogador = null
+			areia.seguindo = false
 
 	
 	pass
