@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://d1qukjqklnt7l" path="res://sprites/hourglass/16x16hourglass.png" id="2_8fwge"]
 [ext_resource type="FontFile" uid="uid://d3fufqskmjou1" path="res://MegamaxJonathanToo-YqOq2.ttf" id="3_yhodh"]
 [ext_resource type="Script" uid="uid://bbyjboirn46bx" path="res://scripts/play_button.gd" id="4_rc7r4"]
+[ext_resource type="AudioStream" uid="uid://bsjimdl8l4rhi" path="res://music/Three Red Hearts - Candy.ogg" id="5_8fwge"]
+[ext_resource type="AudioStream" uid="uid://bmtw7ikuhdpky" path="res://sounds/coin.wav" id="5_yhodh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kex4t"]
 atlas = ExtResource("1_rc7r4")
@@ -171,6 +173,10 @@ offset_bottom = 0.014984131
 text = "Play"
 label_settings = SubResource("LabelSettings_ro2bu")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Control/PlayButton" unique_id=1704823315]
+stream = ExtResource("5_yhodh")
+volume_db = 7.373
+
 [node name="PlayButton2" type="Button" parent="Control" unique_id=345629161]
 layout_mode = 1
 anchors_preset = -1
@@ -197,6 +203,14 @@ offset_right = 0.11999512
 offset_bottom = -0.026008606
 text = "Credits"
 label_settings = SubResource("LabelSettings_ro2bu")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Control/PlayButton2" unique_id=34618856]
+stream = ExtResource("5_yhodh")
+volume_db = 6.597
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1332866579]
+stream = ExtResource("5_8fwge")
+autoplay = true
 
 [connection signal="pressed" from="Control/PlayButton" to="Control/PlayButton" method="_on_play_pressed"]
 [connection signal="pressed" from="Control/PlayButton2" to="Control/PlayButton" method="_on_credits_button_pressed"]

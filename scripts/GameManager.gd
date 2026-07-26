@@ -91,6 +91,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	timeLeft -= delta
 	if(timeLeft <= 0):
+		
 		get_tree().change_scene_to_file("res://scenes/finalScreen.tscn")
 	else:
 		score += delta * 100
