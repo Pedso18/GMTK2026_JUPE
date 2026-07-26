@@ -31,10 +31,12 @@ func deliver_sand() -> void:
 			areias_para_entregar.append(areia)
 			var indexDaAreia = int(areia.name.substr(areia.name.length()-1, 1))-1
 			GameManager.sandFollowers.erase(indexDaAreia)
-
+	
 	# Se houver pelo menos uma areia seguindo o jogador:
 	if areias_para_entregar.size() > 0:
 		var tempo_total_adicionado = areias_para_entregar.size() * 12 # o 12 é quanto cada areia vale, sujeito a mudanças
+		$AudioStreamPlayer2D.play()
+		
 		
 		# Atualiza o tempo na interface
 		if has_node("%TimeLeftLabel"):

@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dcr6uthfljtit" path="res://sprites/player/walkSide.png" id="8_nr8wp"]
 [ext_resource type="Texture2D" uid="uid://vrmsbbyk5yk5" path="res://sprites/tileSetv1.png" id="9_4d7sh"]
 [ext_resource type="Texture2D" uid="uid://b1n15tf44g7fj" path="res://sprites/player/walkUp.png" id="9_d2bti"]
+[ext_resource type="AudioStream" uid="uid://djfnqdqphjhjc" path="res://sounds/hurt.wav" id="9_qv8l0"]
 [ext_resource type="PackedScene" uid="uid://d35lcb5p6p2vx" path="res://scenes/sand_rb.tscn" id="10_d2bti"]
 [ext_resource type="Texture2D" uid="uid://d1qukjqklnt7l" path="res://sprites/hourglass/16x16hourglass.png" id="10_x0ka3"]
 [ext_resource type="Texture2D" uid="uid://bcrfqij1x4crv" path="res://sprites/tileSetv5-sheet.png" id="11_0q20i"]
@@ -367,6 +368,9 @@ script = ExtResource("7_rj586")
 visible = false
 position = Vector2(-15.117651, 0)
 shape = SubResource("CircleShape2D_d21ai")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="PlayerBody/detectionArea" unique_id=1632284690]
+stream = ExtResource("9_qv8l0")
 
 [node name="HourglassTableRb" type="RigidBody2D" parent="." unique_id=566633245]
 gravity_scale = 0.0

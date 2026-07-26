@@ -18,6 +18,8 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	# Quando o jogador entra na área, começa a seguir
+	$AudioStreamPlayer2D.play()
+	await $AudioStreamPlayer2D.finished
 	if body.is_in_group("player") and not seguindo:
 		print("eu sou a areia", name)
 		seguindo = true

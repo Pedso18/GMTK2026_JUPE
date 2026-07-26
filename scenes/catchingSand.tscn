@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://do1tjs3ctnkxq"]
 
 [ext_resource type="Script" uid="uid://nv1isss2fk03" path="res://scripts/bigBucket.gd" id="1_hfjvq"]
-[ext_resource type="Texture2D" uid="uid://ig0so4kity7t" path="res://sprites/bigBucket.png" id="1_ufeut"]
-[ext_resource type="Texture2D" uid="uid://ccsjjudiipy0a" path="res://sprites/bigBucketFront.png" id="2_hfjvq"]
-[ext_resource type="PackedScene" uid="uid://dvhdn1yy72nqt" path="res://grainOfSand.tscn" id="4_hfjvq"]
+[ext_resource type="Texture2D" uid="uid://dcwjh87rqvkfg" path="res://sprites/bigBucket.png" id="1_ufeut"]
+[ext_resource type="Texture2D" uid="uid://kma3bovevwy0" path="res://sprites/bigBucketFront.png" id="2_hfjvq"]
+[ext_resource type="AudioStream" uid="uid://djfnqdqphjhjc" path="res://sounds/hurt.wav" id="4_er56y"]
+[ext_resource type="PackedScene" uid="uid://dvhdn1yy72nqt" path="res://scenes/grainOfSand.tscn" id="4_hfjvq"]
 [ext_resource type="Script" uid="uid://8k1l5mfskan6" path="res://scripts/bigShovel.gd" id="5_1purq"]
-[ext_resource type="Texture2D" uid="uid://cs51gnm0o7q8f" path="res://sprites/bigShovel.png" id="5_m0yma"]
-[ext_resource type="Texture2D" uid="uid://ds538gyyu1ju1" path="res://sprites/bigShovelFront.png" id="6_1purq"]
+[ext_resource type="Texture2D" uid="uid://bnbmn12iwbpqm" path="res://sprites/bigShovel.png" id="5_m0yma"]
+[ext_resource type="Texture2D" uid="uid://dgbj5pqjlhp3i" path="res://sprites/bigShovelFront.png" id="6_1purq"]
+[ext_resource type="AudioStream" uid="uid://s412ad73v5qc" path="res://music/bucketsoundtrack.mp3" id="9_rqp7x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m0yma"]
 size = Vector2(18.100004, 13.900002)
@@ -56,6 +58,9 @@ z_index = 6
 texture_filter = 1
 scale = Vector2(10, 10)
 texture = ExtResource("2_hfjvq")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="BucketRb" unique_id=1082176400]
+stream = ExtResource("4_er56y")
 
 [node name="WorldBarrier" type="RigidBody2D" parent="." unique_id=1797764103]
 disable_mode = 1
@@ -155,5 +160,10 @@ position = Vector2(638, 332)
 
 [node name="grainOfSandRb19" parent="." unique_id=1437747536 instance=ExtResource("4_hfjvq")]
 position = Vector2(655, 292)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1612250278]
+stream = ExtResource("9_rqp7x")
+volume_db = -15.746
+autoplay = true
 
 [connection signal="body_entered" from="BucketRb/BucketSprite/BucketArea" to="BucketRb" method="_on_bucket_area_body_entered"]

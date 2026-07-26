@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ci5cdm7cuqgu6" path="res://scripts/sand_rb.gd" id="1_bl23f"]
 [ext_resource type="Texture2D" uid="uid://wx35km4vegh6" path="res://sprites/sandBucketIcon.png" id="1_je4ec"]
+[ext_resource type="AudioStream" uid="uid://bmtw7ikuhdpky" path="res://sounds/coin.wav" id="3_soss4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rmmya"]
 atlas = ExtResource("1_je4ec")
@@ -55,3 +56,6 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1265872496]
 position = Vector2(20, 4)
 shape = SubResource("CircleShape2D_uqtng")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=356169235]
+stream = ExtResource("3_soss4")
