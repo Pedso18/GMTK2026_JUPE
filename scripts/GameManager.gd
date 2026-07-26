@@ -13,6 +13,11 @@ var sand4SpawnerName = null
 
 var timeLeft = 60
 var score = 0
+var alive = true
+
+var initPlayAgain = false
+
+const INITIAL_TIME = 60
 
 var sandFollowers = [] # carrega o index das areias que estao seguindo o player
 
@@ -38,7 +43,7 @@ func saveScene():
 
 func loadScene():
 	if(firstLoad):
-		timeLeft = 60
+		timeLeft = INITIAL_TIME
 		score = 0
 		var areias = get_tree().get_nodes_in_group("areia")
 		var sandSpawners = get_tree().get_nodes_in_group("sandSpawners")
@@ -83,15 +88,44 @@ func loadScene():
 		areias[sandFollowerIndex].alvo_jogador = player
 	
 
+func playAgain():
+	initPlayAgain = false
+	timeLeft = INITIAL_TIME
+	score = 0
+	alive = true
+	var player = get_tree().get_first_node_in_group("player")
+	
+	playerPos = Vector2(430, 327)
+	
+	
+	
+	var areias = get_tree().get_nodes_in_group("areia")
+	var sandSpawners = get_tree().get_nodes_in_group("sandSpawners")
+	
+	for areia in areias:
+		var spawnerIndex = rng.randi_range(0, sandSpawners.size()-1)
+		while(sandSpawners[spawnerIndex].hasSand):
+			# garante que não teremos duas areias em um mesmo spawner
+			spawnerIndex = rng.randi_range(0, sandSpawners.size()-1)
+		areia.global_position = sandSpawners[spawnerIndex].global_position
+		sandSpawners[spawnerIndex].hasSand = true
+		areia.spawnerOriginario = sandSpawners[spawnerIndex]
+	
+	player.global_position = playerPos
+	print("alive:", alive)
+	
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
 	timeLeft -= delta
-	if(timeLeft <= 0):
+	if(timeLeft <= 0 and alive):
+		alive = false
 		get_tree().change_scene_to_file("res://scenes/finalScreen.tscn")
-	else:
+	elif (timeLeft > 0):
 		score += delta * 100
 	pass
