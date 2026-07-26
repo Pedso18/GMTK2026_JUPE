@@ -145,7 +145,8 @@ anchor_left = 1.2
 anchor_top = 1.6250001
 anchor_right = 19.375
 anchor_bottom = 4.15
-text = "Game Title"
+text = "Hourglass 
+adventure"
 label_settings = SubResource("LabelSettings_4rx74")
 
 [node name="PlayButton" type="Button" parent="Control" unique_id=49567797]
