@@ -9,7 +9,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	text = str(text.to_float() - delta).substr(0, 5)
+	text = str(GameManager.timeLeft).substr(0, 5)
 	var targetOpacity = max((20 - float(text))/20, 0)
 	var targetIntensity = max((20 - float(text))/20, 0)
 	if vignette_overlay and vignette_overlay.material:

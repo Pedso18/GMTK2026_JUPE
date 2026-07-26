@@ -1,0 +1,202 @@
+[gd_scene format=3 uid="uid://cemep1yppw12s"]
+
+[ext_resource type="Texture2D" uid="uid://clmhvwl15npnw" path="res://sprites/sandBackground.png" id="1_rc7r4"]
+[ext_resource type="Texture2D" uid="uid://d1qukjqklnt7l" path="res://sprites/hourglass/16x16hourglass.png" id="2_8fwge"]
+[ext_resource type="FontFile" uid="uid://d3fufqskmjou1" path="res://MegamaxJonathanToo-YqOq2.ttf" id="3_yhodh"]
+[ext_resource type="Script" uid="uid://bbyjboirn46bx" path="res://scripts/play_button.gd" id="4_rc7r4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kex4t"]
+atlas = ExtResource("1_rc7r4")
+region = Rect2(0, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jf84i"]
+atlas = ExtResource("1_rc7r4")
+region = Rect2(128, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bn6oj"]
+atlas = ExtResource("1_rc7r4")
+region = Rect2(256, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_om28l"]
+atlas = ExtResource("1_rc7r4")
+region = Rect2(384, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ro2bu"]
+atlas = ExtResource("1_rc7r4")
+region = Rect2(512, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wdl3"]
+atlas = ExtResource("1_rc7r4")
+region = Rect2(640, 0, 128, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4rx74"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kex4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jf84i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bn6oj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_om28l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ro2bu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wdl3")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24dk6"]
+atlas = ExtResource("2_8fwge")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mryly"]
+atlas = ExtResource("2_8fwge")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kq1c5"]
+atlas = ExtResource("2_8fwge")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ornx7"]
+atlas = ExtResource("2_8fwge")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_om28l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24dk6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mryly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kq1c5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ornx7")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4rx74"]
+font = ExtResource("3_yhodh")
+font_size = 100
+font_color = Color(0.9529003, 0.9529003, 0.9529003, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ro2bu"]
+font = ExtResource("3_yhodh")
+font_size = 50
+font_color = Color(0.9529003, 0.9529003, 0.9529003, 1)
+
+[sub_resource type="GDScript" id="GDScript_8fwge"]
+script/source = "extends Button
+
+func _on_pressed() -> void:
+	print(\"hey hey\")
+	pass # Replace with function body.
+"
+
+[node name="startMenu" type="Node2D" unique_id=1412086496]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1070388566]
+texture_filter = 1
+position = Vector2(628, 324)
+scale = Vector2(12, 12)
+sprite_frames = SubResource("SpriteFrames_4rx74")
+autoplay = "default"
+frame_progress = 0.39887822
+
+[node name="hourglassHUD" type="AnimatedSprite2D" parent="." unique_id=1888603181]
+z_index = 5
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(937, 414.00003)
+scale = Vector2(15, 15)
+sprite_frames = SubResource("SpriteFrames_om28l")
+autoplay = "default"
+frame_progress = 0.1516607
+
+[node name="Control" type="Control" parent="." unique_id=1317558740]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Title" type="Label" parent="Control" unique_id=1490124628]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.2
+anchor_top = 1.6250001
+anchor_right = 19.375
+anchor_bottom = 4.15
+text = "Game Title"
+label_settings = SubResource("LabelSettings_4rx74")
+
+[node name="PlayButton" type="Button" parent="Control" unique_id=49567797]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 2.575
+anchor_top = 8.35
+anchor_right = 6.7000003
+anchor_bottom = 9.925
+flat = true
+script = ExtResource("4_rc7r4")
+
+[node name="PlayLabel" type="Label" parent="Control/PlayButton" unique_id=1128798846]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.091000006
+anchor_top = 0.127
+anchor_right = 0.96900004
+anchor_bottom = 1.075
+offset_left = -0.015003204
+offset_top = -0.0010099411
+offset_right = 0.114990234
+offset_bottom = 0.014984131
+text = "Play"
+label_settings = SubResource("LabelSettings_ro2bu")
+
+[node name="PlayButton2" type="Button" parent="Control" unique_id=345629161]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 2.575
+anchor_top = 10.650001
+anchor_right = 10.575001
+anchor_bottom = 12.175
+offset_top = -3.0517578e-05
+offset_right = -3.0517578e-05
+flat = true
+script = SubResource("GDScript_8fwge")
+
+[node name="CreditsLabel" type="Label" parent="Control/PlayButton2" unique_id=347058487]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.041
+anchor_top = 0.115
+anchor_right = 0.83400005
+anchor_bottom = 1.0660001
+offset_left = -0.11999893
+offset_top = -0.015000343
+offset_right = 0.11999512
+offset_bottom = -0.026008606
+text = "Credits"
+label_settings = SubResource("LabelSettings_ro2bu")
+
+[connection signal="pressed" from="Control/PlayButton" to="Control/PlayButton" method="_on_play_pressed"]
+[connection signal="pressed" from="Control/PlayButton2" to="Control/PlayButton" method="_on_credits_button_pressed"]

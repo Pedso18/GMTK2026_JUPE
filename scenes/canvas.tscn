@@ -1,0 +1,196 @@
+[gd_scene format=3 uid="uid://djk0h3n1o6wxt"]
+
+[ext_resource type="Texture2D" uid="uid://d1qukjqklnt7l" path="res://sprites/hourglass/16x16hourglass.png" id="1_bvnf8"]
+[ext_resource type="FontFile" uid="uid://d3fufqskmjou1" path="res://MegamaxJonathanToo-YqOq2.ttf" id="2_y5mtt"]
+[ext_resource type="Script" uid="uid://cly8g6ih6qk5q" path="res://scripts/timeText.gd" id="3_g1y03"]
+[ext_resource type="Texture2D" uid="uid://wx35km4vegh6" path="res://sprites/sandBucketIcon.png" id="4_b5t36"]
+[ext_resource type="Shader" uid="uid://dhll2iuba6b2x" path="res://shaders/vignete.gdshader" id="5_rletj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0h7mo"]
+atlas = ExtResource("1_bvnf8")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nr8wp"]
+atlas = ExtResource("1_bvnf8")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2bti"]
+atlas = ExtResource("1_bvnf8")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2u7jv"]
+atlas = ExtResource("1_bvnf8")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_triq8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0h7mo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nr8wp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2bti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2u7jv")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24dk6"]
+atlas = ExtResource("1_bvnf8")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mryly"]
+atlas = ExtResource("1_bvnf8")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kq1c5"]
+atlas = ExtResource("1_bvnf8")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ornx7"]
+atlas = ExtResource("1_bvnf8")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a0w6t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24dk6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mryly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kq1c5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ornx7")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ujfq8"]
+font = ExtResource("2_y5mtt")
+font_size = 50
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnnru"]
+atlas = ExtResource("4_b5t36")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_540hr"]
+atlas = ExtResource("4_b5t36")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ip5v"]
+atlas = ExtResource("4_b5t36")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5dlx"]
+atlas = ExtResource("4_b5t36")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bije7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnnru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_540hr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ip5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5dlx")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cf5eo"]
+font = ExtResource("2_y5mtt")
+font_size = 50
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ijla6"]
+shader = ExtResource("5_rletj")
+shader_parameter/tint_color = Color(1, 0, 0, 1)
+shader_parameter/vignette_intensity = 0.0
+shader_parameter/vignette_opacity = 0.0
+
+[node name="Canvas" type="Node2D" unique_id=1065819008]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=371230033]
+
+[node name="HUD" type="Control" parent="CanvasLayer" unique_id=1294617945]
+z_index = 10
+layout_mode = 3
+anchors_preset = 0
+offset_right = 5684.237
+offset_bottom = 585.0
+
+[node name="hourglassHUD2" type="AnimatedSprite2D" parent="CanvasLayer/HUD" unique_id=1959842346]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(689.00006, 54)
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_triq8")
+autoplay = "default"
+
+[node name="hourglassHUD" type="AnimatedSprite2D" parent="CanvasLayer/HUD" unique_id=496558450]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(413, 53)
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_a0w6t")
+autoplay = "default"
+
+[node name="TimeLeftLabel" type="Label" parent="CanvasLayer/HUD" unique_id=1184951870 node_paths=PackedStringArray("vignette_overlay")]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 0
+offset_left = 423.92188
+offset_top = 17.0
+offset_right = 678.9219
+offset_bottom = 93.0
+text = "60.000"
+label_settings = SubResource("LabelSettings_ujfq8")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+script = ExtResource("3_g1y03")
+vignette_overlay = NodePath("../../ColorRect")
+
+[node name="sandIcon" type="AnimatedSprite2D" parent="CanvasLayer/HUD" unique_id=824322322]
+texture_filter = 1
+position = Vector2(963, 54)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_bije7")
+autoplay = "default"
+
+[node name="SandLabel" type="Label" parent="CanvasLayer/HUD" unique_id=1834744815]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 0
+offset_left = 1010.0
+offset_top = 34.0
+offset_right = 1083.0
+offset_bottom = 85.0
+text = "10"
+label_settings = SubResource("LabelSettings_cf5eo")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1152471981]
+material = SubResource("ShaderMaterial_ijla6")
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(1, 0.16470589, 0.22352941, 0.30980393)

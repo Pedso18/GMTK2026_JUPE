@@ -22,7 +22,6 @@ func _on_body_entered(body: Node2D) -> void:
 	$AudioStreamPlayer2D.play()
 	await $AudioStreamPlayer2D.finished
 	if body.is_in_group("player") and not seguindo:
-		print("eu sou a areia", name)
 		seguindo = true
 		var areiaIndex = int(name.substr(name.length()-1, 1))-1
 		if(not GameManager.sandFollowers.has(areiaIndex)):
@@ -37,7 +36,7 @@ func _process(delta: float) -> void:
 	if seguindo and is_instance_valid(alvo_jogador):
 		# Move o item na direção da posição global do jogador
 		global_position = global_position.move_toward(
-			alvo_jogador.global_position, 
+			Vector2(alvo_jogador.global_position.x + 20, alvo_jogador.global_position.y + 10), 
 			velocidade_perseguicao * delta
 		)
 	

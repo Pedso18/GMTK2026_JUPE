@@ -9,6 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://bnbmn12iwbpqm" path="res://sprites/bigShovel.png" id="5_m0yma"]
 [ext_resource type="Texture2D" uid="uid://dgbj5pqjlhp3i" path="res://sprites/bigShovelFront.png" id="6_1purq"]
 [ext_resource type="AudioStream" uid="uid://byitswr11br61" path="res://music/Three Red Hearts - Out of Time.ogg" id="9_rqp7x"]
+[ext_resource type="Texture2D" uid="uid://d1qukjqklnt7l" path="res://sprites/hourglass/16x16hourglass.png" id="10_8wtln"]
+[ext_resource type="FontFile" uid="uid://d3fufqskmjou1" path="res://MegamaxJonathanToo-YqOq2.ttf" id="11_70pe6"]
+[ext_resource type="Script" uid="uid://cly8g6ih6qk5q" path="res://scripts/timeText.gd" id="12_lpi2r"]
+[ext_resource type="Shader" uid="uid://dhll2iuba6b2x" path="res://shaders/vignete.gdshader" id="14_teqre"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m0yma"]
 size = Vector2(18.100004, 13.900002)
@@ -24,6 +28,88 @@ normal = Vector2(-0.9999683, -0.007967874)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ss48o"]
 normal = Vector2(0.0027322301, 0.99999624)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0h7mo"]
+atlas = ExtResource("10_8wtln")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nr8wp"]
+atlas = ExtResource("10_8wtln")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2bti"]
+atlas = ExtResource("10_8wtln")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2u7jv"]
+atlas = ExtResource("10_8wtln")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v3l5r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0h7mo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nr8wp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2bti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2u7jv")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24dk6"]
+atlas = ExtResource("10_8wtln")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mryly"]
+atlas = ExtResource("10_8wtln")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kq1c5"]
+atlas = ExtResource("10_8wtln")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ornx7"]
+atlas = ExtResource("10_8wtln")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3wa8h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24dk6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mryly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kq1c5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ornx7")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q5u0j"]
+font = ExtResource("11_70pe6")
+font_size = 50
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xx4j1"]
+shader = ExtResource("14_teqre")
+shader_parameter/tint_color = Color(1, 0, 0, 1)
+shader_parameter/vignette_intensity = 0.0
+shader_parameter/vignette_opacity = 0.0
 
 [node name="CatchingSand" type="Node2D" unique_id=659462878]
 
@@ -166,5 +252,52 @@ position = Vector2(655, 292)
 stream = ExtResource("9_rqp7x")
 volume_db = -9.494
 autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=255495625]
+
+[node name="HUD" type="Control" parent="CanvasLayer" unique_id=1949029389]
+z_index = 10
+layout_mode = 3
+anchors_preset = 0
+offset_right = 5684.237
+offset_bottom = 585.0
+
+[node name="hourglassHUD2" type="AnimatedSprite2D" parent="CanvasLayer/HUD" unique_id=76786654]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(689.00006, 54)
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_v3l5r")
+autoplay = "default"
+
+[node name="hourglassHUD" type="AnimatedSprite2D" parent="CanvasLayer/HUD" unique_id=1627640684]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(413, 53)
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_3wa8h")
+autoplay = "default"
+
+[node name="TimeLeftLabel" type="Label" parent="CanvasLayer/HUD" unique_id=1906139886 node_paths=PackedStringArray("vignette_overlay")]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 0
+offset_left = 423.92188
+offset_top = 17.0
+offset_right = 678.9219
+offset_bottom = 93.0
+text = "60.000"
+label_settings = SubResource("LabelSettings_q5u0j")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+script = ExtResource("12_lpi2r")
+vignette_overlay = NodePath("../../ColorRect")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=2066605758]
+material = SubResource("ShaderMaterial_xx4j1")
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(1, 0.16470589, 0.22352941, 0.30980393)
 
 [connection signal="body_entered" from="BucketRb/BucketSprite/BucketArea" to="BucketRb" method="_on_bucket_area_body_entered"]

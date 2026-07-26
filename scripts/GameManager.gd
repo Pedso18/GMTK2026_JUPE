@@ -10,6 +10,10 @@ var sand1SpawnerName = null
 var sand2SpawnerName = null
 var sand3SpawnerName = null
 var sand4SpawnerName = null
+
+var timeLeft = 60
+var score = 0
+
 var sandFollowers = [] # carrega o index das areias que estao seguindo o player
 
 var rng = RandomNumberGenerator.new()
@@ -34,6 +38,8 @@ func saveScene():
 
 func loadScene():
 	if(firstLoad):
+		timeLeft = 60
+		score = 0
 		var areias = get_tree().get_nodes_in_group("areia")
 		var sandSpawners = get_tree().get_nodes_in_group("sandSpawners")
 		
@@ -83,4 +89,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	timeLeft -= delta
+	if(timeLeft <= 0):
+		get_tree().change_scene_to_file("res://scenes/finalScreen.tscn")
+	else:
+		score += delta * 100
 	pass

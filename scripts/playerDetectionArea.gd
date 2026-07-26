@@ -40,8 +40,8 @@ func deliver_sand() -> void:
 		
 		# Atualiza o tempo na interface
 		if has_node("%TimeLeftLabel"):
-			var tempo_atual = float(%TimeLeftLabel.text)
-			%TimeLeftLabel.text = str(tempo_atual + tempo_total_adicionado).substr(0, 5)
+			var tempo_atual = GameManager.timeLeft
+			GameManager.timeLeft = tempo_atual + tempo_total_adicionado
 
 		# Zera ou atualiza a contagem visual na UI se necessário
 		if has_node("%SandLabel"):
