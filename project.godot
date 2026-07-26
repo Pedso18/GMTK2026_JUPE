@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameManager="*uid://b5xilkyykddms"
+SceneSwitcher="*uid://b6sbpm87e4ruf"
 
 [display]
 

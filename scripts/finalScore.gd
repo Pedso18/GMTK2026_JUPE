@@ -19,5 +19,5 @@ func _ready() -> void:
 
 func _on_play_again_button_pressed() -> void:
 	GameManager.initPlayAgain = true
-	get_tree().change_scene_to_file("res://scenes/node_2d.tscn")
+	SceneSwitcher.switch_to_scene("res://scenes/node_2d.tscn")
 	pass # Replace with function body.

@@ -125,7 +125,7 @@ func _process(delta: float) -> void:
 	if(timeLeft <= 0 and alive):
 		
 		alive = false
-		get_tree().change_scene_to_file("res://scenes/finalScreen.tscn")
+		SceneSwitcher.switch_to_scene("res://scenes/finalScreen.tscn")
 	elif (timeLeft > 0):
 		score += delta * 100
 	pass

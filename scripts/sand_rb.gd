@@ -28,7 +28,7 @@ func _on_body_entered(body: Node2D) -> void:
 			GameManager.sandFollowers.append(areiaIndex)
 		alvo_jogador = body
 		GameManager.saveScene()
-		get_tree().change_scene_to_file("res://scenes/catchingSand.tscn")
+		SceneSwitcher.switch_to_scene("res://scenes/catchingSand.tscn")
 
 
 func _process(delta: float) -> void:
