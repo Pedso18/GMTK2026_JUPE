@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://du4iu0kq133ko" path="res://sprites/tileSetGreenHouse.png" id="12_qv8l0"]
 [ext_resource type="Shader" uid="uid://dhll2iuba6b2x" path="res://shaders/vignete.gdshader" id="13_0h7mo"]
 [ext_resource type="Texture2D" uid="uid://wx35km4vegh6" path="res://sprites/sandBucketIcon.png" id="13_nr8wp"]
+[ext_resource type="AudioStream" uid="uid://32rqkdb304w4" path="res://music/Three Red Hearts - Box Jump.ogg" id="20_k6u5g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ta5nu"]
 atlas = ExtResource("6_x0ka3")
@@ -215,11 +216,17 @@ texture = ExtResource("11_0q20i")
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_coh8c"]
 texture = ExtResource("12_qv8l0")
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_hqns4"]
 physics_layer_0/collision_layer = 1
@@ -388,6 +395,7 @@ shape = SubResource("CircleShape2D_d21ai")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="PlayerBody/detectionArea" unique_id=1632284690]
 stream = ExtResource("9_qv8l0")
+volume_db = 7.373
 
 [node name="HourglassTableRb" type="RigidBody2D" parent="." unique_id=566633245]
 gravity_scale = 0.0
@@ -482,13 +490,13 @@ offset_bottom = 648.0
 color = Color(1, 0.16470589, 0.22352941, 0.30980393)
 
 [node name="SandRb2" parent="." unique_id=365709556 groups=["areia"] instance=ExtResource("10_d2bti")]
-position = Vector2(921, 337)
+position = Vector2(1562, 329)
 
 [node name="SandRb3" parent="." unique_id=2028262435 groups=["areia"] instance=ExtResource("10_d2bti")]
-position = Vector2(746, 35)
+position = Vector2(1053, -440)
 
 [node name="SandRb4" parent="." unique_id=458557716 groups=["areia"] instance=ExtResource("10_d2bti")]
-position = Vector2(524, 477)
+position = Vector2(116, 1051)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=904617120]
 
@@ -511,6 +519,11 @@ position = Vector2(533.4144, 1553.2491)
 rotation = -1.5561033
 scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_nthwk")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1519768485]
+stream = ExtResource("20_k6u5g")
+volume_db = -8.423
+autoplay = true
 
 [connection signal="body_entered" from="PlayerBody/detectionArea" to="PlayerBody/detectionArea" method="_on_body_entered"]
 [connection signal="body_exited" from="PlayerBody/detectionArea" to="PlayerBody/detectionArea" method="_on_body_exited"]
