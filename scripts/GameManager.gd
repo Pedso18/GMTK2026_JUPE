@@ -124,6 +124,7 @@ func _process(delta: float) -> void:
 	
 	timeLeft -= delta + delta * 0.2 * score / 6000
 	if(timeLeft <= 0 and alive):
+		
 		alive = false
 		get_tree().change_scene_to_file("res://scenes/finalScreen.tscn")
 	elif (timeLeft > 0):

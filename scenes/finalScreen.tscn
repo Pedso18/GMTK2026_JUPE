@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://clmhvwl15npnw" path="res://sprites/sandBackground.png" id="1_iao6w"]
 [ext_resource type="FontFile" uid="uid://d3fufqskmjou1" path="res://MegamaxJonathanToo-YqOq2.ttf" id="3_bn6oj"]
 [ext_resource type="Script" uid="uid://le3yytrra7iq" path="res://scripts/finalScore.gd" id="3_jf84i"]
+[ext_resource type="AudioStream" uid="uid://cy1hh48nbmko4" path="res://music/Three Red Hearts - Modern Bits.ogg" id="4_bn6oj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kex4t"]
 atlas = ExtResource("1_iao6w")
@@ -70,6 +71,11 @@ font_size = 50
 font_color = Color(0.9529003, 0.9529003, 0.9529003, 1)
 
 [node name="FinalScreen" type="Node2D" unique_id=1283613236]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1999949510]
+stream = ExtResource("4_bn6oj")
+volume_db = 0.06
+autoplay = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1368782441]
 texture_filter = 1
