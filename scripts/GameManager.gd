@@ -121,7 +121,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
-	timeLeft -= delta + delta * 0.2 * score / 6000
+	timeLeft -= delta + delta * 0.15 * score / 6000
 	if(timeLeft <= 0 and alive):
 		
 		alive = false
