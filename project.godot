@@ -23,6 +23,10 @@ GameManager="*uid://b5xilkyykddms"
 
 window/stretch/mode="canvas_items"
 
+[global_group]
+
+sandSpawners=""
+
 [input]
 
 ui_left={

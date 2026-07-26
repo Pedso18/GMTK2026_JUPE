@@ -49,7 +49,19 @@ func deliver_sand() -> void:
 
 		# ao invés de destruir as areias entregues, resetamos seu estado e aleatorizamos sua posição para uma das válidas
 		for areia in areias_para_entregar:
-			areia.global_position = Vector2(0, 0) #apenas para teste
+			
+			areia.spawnerOriginario.hasSand = false
+			
+			var sandSpawners = get_tree().get_nodes_in_group("sandSpawners")
+			var spawnerIndex = GameManager.rng.randi_range(0, sandSpawners.size()-1)
+			
+			while(sandSpawners[spawnerIndex].hasSand):
+				spawnerIndex = GameManager.rng.randi_range(0, sandSpawners.size()-1)
+			
+			areia.global_position = sandSpawners[spawnerIndex].global_position
+			sandSpawners[spawnerIndex].hasSand = true
+			areia.spawnerOriginario = sandSpawners[spawnerIndex]
+			
 			areia.alvo_jogador = null
 			areia.seguindo = false
 

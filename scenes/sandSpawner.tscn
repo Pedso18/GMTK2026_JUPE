@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://kv830umjxgrv"]
+
+[ext_resource type="Texture2D" uid="uid://dhigykhxyixlw" path="res://sprites/sandSpawners/cactus.png" id="1_7quct"]
+[ext_resource type="Script" uid="uid://cxj8eib2i2uv6" path="res://scripts/sand_spawner.gd" id="2_6pk7s"]
+
+[node name="SandSpawner" type="Sprite2D" unique_id=1197689938 groups=["sandSpawners"]]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("1_7quct")
+script = ExtResource("2_6pk7s")

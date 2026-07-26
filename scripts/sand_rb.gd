@@ -11,6 +11,7 @@ extends Area2D
 
 var seguindo : bool = false
 var alvo_jogador : Node2D = null
+var spawnerOriginario : Node2D = null
 
 func _ready() -> void:
 	# Conecta o sinal de entrada de corpo

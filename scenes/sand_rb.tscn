@@ -47,14 +47,14 @@ radius = 19.0
 script = ExtResource("1_bl23f")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1418944464]
+z_index = 1
 texture_filter = 1
-position = Vector2(20.5, 1.7500005)
 scale = Vector2(2.9375, 2.59375)
 sprite_frames = SubResource("SpriteFrames_nthwk")
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1265872496]
-position = Vector2(20, 4)
+position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_uqtng")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=356169235]
