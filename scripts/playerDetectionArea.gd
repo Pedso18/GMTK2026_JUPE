@@ -2,6 +2,7 @@ extends Area2D
 
 var isCloseToHourglassTable = false;
 var amountOfSand = 0;
+const TEMPO_POR_BALDE = 20
 
 func _on_body_entered(body: Node2D) -> void:
 	print("body entered:", body.name)
@@ -34,7 +35,7 @@ func deliver_sand() -> void:
 	
 	# Se houver pelo menos uma areia seguindo o jogador:
 	if areias_para_entregar.size() > 0:
-		var tempo_total_adicionado = areias_para_entregar.size() * 12 # o 12 é quanto cada areia vale, sujeito a mudanças
+		var tempo_total_adicionado = areias_para_entregar.size() * TEMPO_POR_BALDE
 		$AudioStreamPlayer2D.play()
 		
 		

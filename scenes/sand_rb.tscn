@@ -2,7 +2,14 @@
 
 [ext_resource type="Script" uid="uid://ci5cdm7cuqgu6" path="res://scripts/sand_rb.gd" id="1_bl23f"]
 [ext_resource type="Texture2D" uid="uid://wx35km4vegh6" path="res://sprites/sandBucketIcon.png" id="1_je4ec"]
+[ext_resource type="Shader" uid="uid://dsyiy7lvhfjp8" path="res://shaders/sandGlow.gdshader" id="2_4kmqq"]
 [ext_resource type="AudioStream" uid="uid://bmtw7ikuhdpky" path="res://sounds/coin.wav" id="3_soss4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_diulx"]
+shader = ExtResource("2_4kmqq")
+shader_parameter/glow_color = Color(0.9, 0.9, 0.8, 0.1)
+shader_parameter/glow_thickness = 1.0
+shader_parameter/glow_intensity = 3.79600018031
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rmmya"]
 atlas = ExtResource("1_je4ec")
@@ -49,11 +56,13 @@ script = ExtResource("1_bl23f")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1418944464]
 z_index = 1
 texture_filter = 1
+material = SubResource("ShaderMaterial_diulx")
 scale = Vector2(2.9375, 2.59375)
 sprite_frames = SubResource("SpriteFrames_nthwk")
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1265872496]
+visible = false
 position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_uqtng")
 

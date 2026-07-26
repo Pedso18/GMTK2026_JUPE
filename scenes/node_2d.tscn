@@ -21,7 +21,9 @@
 [ext_resource type="PackedScene" uid="uid://kv830umjxgrv" path="res://scenes/sandSpawner.tscn" id="14_ey6mn"]
 [ext_resource type="Texture2D" uid="uid://bmwnj156ee2er" path="res://sprites/sandSpawners/catBox.png" id="15_2sxpt"]
 [ext_resource type="AudioStream" uid="uid://32rqkdb304w4" path="res://music/Three Red Hearts - Box Jump.ogg" id="20_k6u5g"]
+[ext_resource type="Texture2D" uid="uid://c2rfoprfxj75x" path="res://sprites/sandSpawners/couch.png" id="23_ey6mn"]
 [ext_resource type="Texture2D" uid="uid://cyix85jr150vc" path="res://sprites/sandSpawners/sandPile.png" id="23_pblkq"]
+[ext_resource type="Texture2D" uid="uid://bcsbghtcggal0" path="res://sprites/sandSpawners/flowerPot.png" id="25_22dhx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ta5nu"]
 atlas = ExtResource("6_x0ka3")
@@ -522,6 +524,24 @@ texture = ExtResource("23_pblkq")
 [node name="SandSpawner11" parent="." unique_id=1436565840 instance=ExtResource("14_ey6mn")]
 position = Vector2(-378, 287)
 texture = ExtResource("23_pblkq")
+
+[node name="Couch" type="Sprite2D" parent="." unique_id=91223924]
+texture_filter = 1
+position = Vector2(152, 1115)
+scale = Vector2(5, 5)
+texture = ExtResource("23_ey6mn")
+
+[node name="FlowerPot" type="Sprite2D" parent="." unique_id=727830438]
+texture_filter = 1
+position = Vector2(1175, -347.00003)
+scale = Vector2(3, 3)
+texture = ExtResource("25_22dhx")
+
+[node name="FlowerPot2" type="Sprite2D" parent="." unique_id=94775322]
+texture_filter = 1
+position = Vector2(1102, -473)
+scale = Vector2(3, 3)
+texture = ExtResource("25_22dhx")
 
 [connection signal="body_entered" from="PlayerBody/detectionArea" to="PlayerBody/detectionArea" method="_on_body_entered"]
 [connection signal="body_exited" from="PlayerBody/detectionArea" to="PlayerBody/detectionArea" method="_on_body_exited"]

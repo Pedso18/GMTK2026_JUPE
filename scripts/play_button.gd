@@ -1,7 +1,7 @@
 extends Button
 
 func _on_credits_button_pressed() -> void:
-	print("credits")
+	get_tree().change_scene_to_file("res://scenes/creditsScreen.tscn")
 	pass # Replace with function body.
 
 

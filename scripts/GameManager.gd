@@ -122,7 +122,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
-	timeLeft -= delta
+	timeLeft -= delta + delta * 0.2 * score / 6000
 	if(timeLeft <= 0 and alive):
 		alive = false
 		get_tree().change_scene_to_file("res://scenes/finalScreen.tscn")
