@@ -481,7 +481,7 @@ shape = SubResource("RectangleShape2D_nthwk")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1519768485]
 stream = ExtResource("20_k6u5g")
-volume_db = -8.423
+volume_db = -11.719
 autoplay = true
 
 [node name="SandSpawner" parent="." unique_id=336671038 instance=ExtResource("14_ey6mn")]

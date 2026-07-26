@@ -211,6 +211,7 @@ volume_db = 6.597
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1332866579]
 stream = ExtResource("5_8fwge")
+volume_db = -8.423
 autoplay = true
 
 [connection signal="pressed" from="Control/PlayButton" to="Control/PlayButton" method="_on_play_pressed"]

@@ -147,7 +147,7 @@ texture = ExtResource("2_hfjvq")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="BucketRb" unique_id=1082176400]
 stream = ExtResource("4_er56y")
-volume_db = 10.478
+volume_db = 4.657
 
 [node name="WorldBarrier" type="RigidBody2D" parent="." unique_id=1797764103]
 disable_mode = 1

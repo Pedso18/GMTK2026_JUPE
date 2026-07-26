@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://clmhvwl15npnw" path="res://sprites/sandBackground.png" id="1_i4786"]
 [ext_resource type="FontFile" uid="uid://d3fufqskmjou1" path="res://MegamaxJonathanToo-YqOq2.ttf" id="2_iimxu"]
 [ext_resource type="Script" uid="uid://d3i1ql0y830ml" path="res://scripts/creditsScreen.gd" id="3_i4786"]
+[ext_resource type="AudioStream" uid="uid://cy1hh48nbmko4" path="res://music/Three Red Hearts - Modern Bits.ogg" id="4_iimxu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kex4t"]
 atlas = ExtResource("1_i4786")
@@ -146,5 +147,9 @@ offset_bottom = 0.0069885254
 text = "Return to Menu"
 label_settings = SubResource("LabelSettings_b7irm")
 horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1394465016]
+stream = ExtResource("4_iimxu")
+autoplay = true
 
 [connection signal="pressed" from="Control/BackToMenu" to="Control/credits" method="_on_back_to_menu_button_pressed"]

@@ -12,7 +12,7 @@ func _ready() -> void:
 	var minutos: int = tempo[0]
 	var segundos: int = tempo[1]
 	
-	text = "Your final score was: %d minute(s) and %d second(s)" % [minutos, segundos]
+	text = "Your final time was: %d minute(s) and %d second(s)" % [minutos, segundos]
 	
 	pass 
 
